@@ -49,4 +49,34 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		this.selection = selection;
 	}
 
+	@Override
+	public void register() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void unregister() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isAttach(Object o) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setValue(Object o) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object getValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
