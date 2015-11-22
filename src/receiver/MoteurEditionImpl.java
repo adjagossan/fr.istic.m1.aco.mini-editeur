@@ -20,7 +20,10 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	@Override
 	public void copier() {
-		// TODO Auto-generated method stub
+		int deb = selection.getDebutSelection();
+		int fin = selection.getFinSelection();
+		String subString = buffer.subString(deb, fin);
+		pressePapier.setContenu(subString);
 
 	}
 
