@@ -34,4 +34,9 @@ public class Selection {
 	public void setFinSelection(int finSelection) {
 		this.finSelection = finSelection;
 	}
+	
+	public void setSelection(int deb, int fin){
+		this.debutSelection = deb;
+		this.finSelection = fin;
+	}
 }
