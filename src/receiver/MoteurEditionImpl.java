@@ -39,8 +39,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	@Override
 	public void selectionner(Selection selection) {
-		// TODO Auto-generated method stub
-
+		this.selection = selection;
 	}
 
 }
