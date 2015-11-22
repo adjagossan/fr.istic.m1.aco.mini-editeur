@@ -1,6 +1,8 @@
 package receiver;
 
-public interface IMoteurEdition {
+import util.ISubject;
+
+public interface IMoteurEdition extends ISubject{
 	
 	void couper();
 
