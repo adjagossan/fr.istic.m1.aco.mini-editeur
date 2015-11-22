@@ -13,9 +13,13 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	}
 
 	@Override
-	public void couper() {
-		// TODO Auto-generated method stub
-
+	public void couper() 
+	{
+		copier();
+		buffer.delete(
+				selection.getDebutSelection(), 
+				selection.getFinSelection()
+				);
 	}
 
 	@Override
