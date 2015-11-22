@@ -29,4 +29,8 @@ public class Buffer {
 	public void insert(int indiceDebut, String texte  ){
 		contenu.insert(indiceDebut, texte);
 	}
+	
+	public String subString(int indiceDebut, int indiceFin){
+		return contenu.substring(indiceDebut, indiceFin);
+	}
 }
