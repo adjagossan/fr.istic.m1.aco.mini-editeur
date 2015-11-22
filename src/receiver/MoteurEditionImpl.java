@@ -32,7 +32,8 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	@Override
 	public void saisir(String texte) {
-		// TODO Auto-generated method stub
+		int debutSelection = selection.getDebutSelection();
+		buffer.insert(debutSelection, texte);
 
 	}
 
