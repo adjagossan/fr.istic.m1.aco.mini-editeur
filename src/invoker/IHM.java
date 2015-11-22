@@ -12,7 +12,7 @@ public class IHM {
 		inputCharacter = "";
 	}
 	
-	public Selection getSelction(){
+	public Selection getSelection(){
 		return selection;
 	}
 	
