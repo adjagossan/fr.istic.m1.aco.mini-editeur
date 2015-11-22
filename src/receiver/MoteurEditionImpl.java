@@ -1,15 +1,22 @@
 package receiver;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import util.IObserver;
+
 public class MoteurEditionImpl implements IMoteurEdition {
 
 	private Buffer buffer;
 	private PressePapier pressePapier;
 	private Selection selection;
+	private List<IObserver> obs = null;
 
 	public MoteurEditionImpl () {
 		pressePapier = new PressePapier();
 		buffer = new Buffer();
 		selection = new Selection(0,0);
+		obs = new ArrayList<>();
 	}
 
 	@Override
@@ -50,21 +57,34 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	}
 
 	@Override
-	public void register() {
-		// TODO Auto-generated method stub
+	public void register(IObserver o) {
+		if (o == null) {
+			throw new IllegalArgumentException("o is null");
+		}
+		if (obs.contains(o)) {
+			throw new IllegalArgumentException("o is registered already");
+		}
+		obs.add(o);
 		
 	}
 
 	@Override
-	public void unregister() {
-		// TODO Auto-generated method stub
-		
+	public void unregister(IObserver o) {
+		if (o == null) {
+			throw new IllegalArgumentException("o is null");
+		}
+		if (!obs.contains(o)) {
+			throw new IllegalArgumentException("o is not registered");
+		}
+		obs.remove(o);
 	}
 
 	@Override
 	public boolean isAttach(Object o) {
-		// TODO Auto-generated method stub
-		return false;
+		if (o == null) {
+            throw new IllegalArgumentException("o is null");
+        }
+		return obs.contains(o);
 	}
 
 	@Override
