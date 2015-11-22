@@ -33,8 +33,8 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	@Override
 	public void coller() {
-		// TODO Auto-generated method stub
-
+		String content = pressePapier.getContenu();
+		this.saisir(content);
 	}
 
 	@Override
