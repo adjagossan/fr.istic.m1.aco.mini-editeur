@@ -1,18 +1,22 @@
 package command;
 
+import receiver.IEnregistreur;
 import receiver.IMoteurEdition;
 
 public class Coller implements ICommand {
+	
 	private IMoteurEdition moteurEdition = null;
-
-	public Coller(IMoteurEdition moteurEdition){
+	private IEnregistreur enregistreur = null;
+	
+	public Coller(IMoteurEdition moteurEdition, IEnregistreur enregistreur){
 		this.moteurEdition = moteurEdition;
+		this.enregistreur = enregistreur;
 	}
 
-	@Override
+	
 	public void execute() {
 		moteurEdition.coller();
-
+		enregistreur.enregistrer(this);
 	}
 
 }

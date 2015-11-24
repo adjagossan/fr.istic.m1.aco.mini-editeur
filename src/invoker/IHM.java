@@ -26,7 +26,7 @@ public class IHM implements IObserver {
 	public IHM(){
 		selection = new Selection(0,0);
 		inputCharacter = "";
-		cmds = new HashMap<>();
+		cmds = new HashMap<String, ICommand>();
 		
 	}
 	/**
@@ -66,7 +66,7 @@ public class IHM implements IObserver {
 		else
 			throw new IllegalArgumentException(cmd+" isn't a valid command");
 	}
-	@Override
+	
 	public void update(ISubject subject) {
 		IMoteurEdition moteurEdition = (MoteurEditionImpl)subject;
 		Signal signal = (Signal) moteurEdition.getValue();

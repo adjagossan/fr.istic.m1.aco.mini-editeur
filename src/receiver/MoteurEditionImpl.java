@@ -17,10 +17,10 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		buffer = new Buffer();
 		selection = new Selection(0,0);
 		signal = new Signal();
-		obs = new ArrayList<>();
+		obs = new ArrayList<IObserver>();
 	}
 
-	@Override
+	
 	public void couper() 
 	{
 		copier();
@@ -32,7 +32,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		setValue(new Signal("couper", null, null));
 	}
 
-	@Override
+	
 	public void copier() {
 		int deb = selection.getDebutSelection();
 		int fin = selection.getFinSelection();
@@ -41,7 +41,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	}
 
-	@Override
+	
 	public void coller() {
 		String content = pressePapier.getContenu();
 		this.saisir(content);
@@ -50,7 +50,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		setValue(new Signal("coller", text, null));
 	}
 
-	@Override
+	
 	public void saisir(String texte) {
 		int debutSelection = selection.getDebutSelection();
 		buffer.insert(debutSelection, texte);
@@ -58,13 +58,13 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	}
 
-	@Override
+	
 	public void selectionner(Selection selection) {
 		this.selection = selection;
 		setValue(new Signal("selctionner", null, selection));
 	}
 
-	@Override
+	
 	public void register(IObserver o) {
 		if (o == null) {
 			throw new IllegalArgumentException("o is null");
@@ -76,7 +76,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	}
 
-	@Override
+	
 	public void unregister(IObserver o) {
 		if (o == null) {
 			throw new IllegalArgumentException("o is null");
@@ -87,7 +87,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		obs.remove(o);
 	}
 
-	@Override
+	
 	public boolean isAttach(Object o) {
 		if (o == null) {
 			throw new IllegalArgumentException("o is null");
@@ -95,13 +95,13 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		return obs.contains(o);
 	}
 
-	@Override
+	
 	public void setValue(Object o) {
 		this.signal.update((Signal)o);
 		notifyObservers();
 	}
 
-	@Override
+	
 	public Object getValue() {
 		// TODO Auto-generated method stub
 		return signal;

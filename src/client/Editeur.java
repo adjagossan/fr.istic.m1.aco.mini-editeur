@@ -1,8 +1,13 @@
 package client;
 
+import receiver.EnregistreurImpl;
+import receiver.IEnregistreur;
 import receiver.IMoteurEdition;
 import receiver.MoteurEditionImpl;
 import invoker.IHM;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 
 import command.Coller;
 import command.Copier;
@@ -11,7 +16,7 @@ import command.ICommand;
 import command.Saisir;
 import command.Selectionner;
 
-public class Editeur {
+public class Editeur  extends JFrame{
 
 	/**
 	 * @param args
@@ -19,13 +24,14 @@ public class Editeur {
 	public static void main(String[] args) {
 		
 		IMoteurEdition moteur = new MoteurEditionImpl();
+		IEnregistreur enregistreur = new EnregistreurImpl();
 		
 		IHM ihm = new IHM();
 		moteur.register(ihm);
 		
-		ICommand copier = new Copier(moteur);
-		ICommand couper = new Couper(moteur);
-		ICommand coller = new Coller(moteur);
+		ICommand copier = new Copier(moteur, enregistreur);
+		ICommand couper = new Couper(moteur, enregistreur);
+		ICommand coller = new Coller(moteur, enregistreur);
 		ICommand selectionner = new Selectionner(moteur, ihm);
 		ICommand saisir = new Saisir(moteur, ihm);
 
@@ -39,6 +45,9 @@ public class Editeur {
 
 	}
 	
-	public Editeur(IMoteurEdition moteur, IHM ihm){}
+	public Editeur(IMoteurEdition moteur, IHM ihm){
+		
+		
+	}
 
 }
