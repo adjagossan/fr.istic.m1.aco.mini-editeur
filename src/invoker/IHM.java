@@ -2,7 +2,12 @@ package invoker;
 
 import java.util.HashMap;
 
+import receiver.IMoteurEdition;
+import receiver.MoteurEditionImpl;
 import receiver.Selection;
+import receiver.Signal;
+import util.IObserver;
+import util.ISubject;
 
 import command.ICommand;
 /**
@@ -10,7 +15,7 @@ import command.ICommand;
  * 
  *
  */
-public class IHM {
+public class IHM implements IObserver {
 	
 	private Selection selection;
 	private String inputCharacter;
@@ -60,5 +65,10 @@ public class IHM {
 			cmds.get(cmd).execute();
 		else
 			throw new IllegalArgumentException(cmd+" isn't a valid command");
+	}
+	@Override
+	public void update(ISubject subject) {
+		IMoteurEdition moteurEdition = (MoteurEditionImpl)subject;
+		Signal signal = (Signal) moteurEdition.getValue();
 	}
 }
