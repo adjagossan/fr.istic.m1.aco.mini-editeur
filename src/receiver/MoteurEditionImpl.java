@@ -2,7 +2,6 @@ package receiver;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import util.IObserver;
 
 public class MoteurEditionImpl implements IMoteurEdition {
@@ -10,12 +9,14 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	private Buffer buffer;
 	private PressePapier pressePapier;
 	private Selection selection;
+	private Signal signal;
 	private List<IObserver> obs = null;
 
 	public MoteurEditionImpl () {
 		pressePapier = new PressePapier();
 		buffer = new Buffer();
 		selection = new Selection(0,0);
+		signal = new Signal();
 		obs = new ArrayList<>();
 	}
 
@@ -27,6 +28,10 @@ public class MoteurEditionImpl implements IMoteurEdition {
 				selection.getDebutSelection(), 
 				selection.getFinSelection()
 				);
+
+
+		String keyword = "couper";
+		setValue(new Signal(keyword, "", selection));
 	}
 
 	@Override
@@ -65,7 +70,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 			throw new IllegalArgumentException("o is registered already");
 		}
 		obs.add(o);
-		
+
 	}
 
 	@Override
@@ -82,21 +87,28 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	@Override
 	public boolean isAttach(Object o) {
 		if (o == null) {
-            throw new IllegalArgumentException("o is null");
-        }
+			throw new IllegalArgumentException("o is null");
+		}
 		return obs.contains(o);
 	}
 
 	@Override
 	public void setValue(Object o) {
-		// TODO Auto-generated method stub
-		
+		this.signal.update((Signal)o);
+		notifyObservers();
 	}
 
 	@Override
 	public Object getValue() {
 		// TODO Auto-generated method stub
-		return null;
+		return signal;
 	}
 
+	private void notifyObservers() {
+
+		for(IObserver observer : obs)
+		{
+			observer.update(this);
+		}
+	}
 }
