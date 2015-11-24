@@ -1,13 +1,20 @@
 package receiver;
 
 public class Signal {
-	String keyword;
-	String text;
-	Selection selection;
+	
+	private String keyword;
+	private String text;
+	private Selection selection;
 	
 	public Signal(){
 	}
-
+	
+	public Signal(String keyword, String text, Selection selection){
+		this.keyword = keyword;
+		this.text = text;
+		this.selection = selection;
+	}
+	
 	public String getKeyword() {
 		return keyword;
 	}
@@ -32,4 +39,9 @@ public class Signal {
 		this.selection = selection;
 	}
 	
+	public void update(Signal signal){
+		this.keyword = signal.keyword;
+		this.text = signal.text;
+		this.selection = signal.selection;
+	}
 }
