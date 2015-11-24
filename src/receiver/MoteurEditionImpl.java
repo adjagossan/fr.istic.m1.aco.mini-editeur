@@ -31,7 +31,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 
 		String keyword = "couper";
-		setValue(new Signal(keyword, "", selection));
+		setValue(new Signal(keyword, null, null));
 	}
 
 	@Override
@@ -47,18 +47,24 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	public void coller() {
 		String content = pressePapier.getContenu();
 		this.saisir(content);
+		
+		String keyword = "coller";
+		String text = pressePapier.getContenu();
+		setValue(new Signal(keyword, text, null));
 	}
 
 	@Override
 	public void saisir(String texte) {
 		int debutSelection = selection.getDebutSelection();
 		buffer.insert(debutSelection, texte);
+		//setValue(new Signal("saisir", null, selection));
 
 	}
 
 	@Override
 	public void selectionner(Selection selection) {
 		this.selection = selection;
+		setValue(new Signal("selctionner", null, selection));
 	}
 
 	@Override
