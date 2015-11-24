@@ -17,10 +17,12 @@ public class Editeur {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		IHM ihm = new IHM();
-
+		
 		IMoteurEdition moteur = new MoteurEditionImpl();
-
+		
+		IHM ihm = new IHM();
+		moteur.register(ihm);
+		
 		ICommand copier = new Copier(moteur);
 		ICommand couper = new Couper(moteur);
 		ICommand coller = new Coller(moteur);
