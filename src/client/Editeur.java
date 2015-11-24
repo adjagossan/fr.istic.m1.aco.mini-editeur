@@ -33,7 +33,7 @@ public class Editeur  extends JFrame{
 		ICommand couper = new Couper(moteur, enregistreur);
 		ICommand coller = new Coller(moteur, enregistreur);
 		ICommand selectionner = new Selectionner(moteur, ihm);
-		ICommand saisir = new Saisir(moteur, ihm);
+		ICommand saisir = new Saisir(moteur, ihm, enregistreur);
 
 		ihm.addCommand("couper", couper);
 		ihm.addCommand("coller", coller);
