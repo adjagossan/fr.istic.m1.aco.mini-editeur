@@ -1,5 +1,7 @@
 package client;
 
+import javax.swing.JFrame;
+
 import receiver.IMoteurEdition;
 import receiver.MoteurEditionImpl;
 import invoker.IHM;
@@ -11,7 +13,7 @@ import command.ICommand;
 import command.Saisir;
 import command.Selectionner;
 
-public class Editeur {
+public class Editeur extends JFrame {
 
 	/**
 	 * @param args
