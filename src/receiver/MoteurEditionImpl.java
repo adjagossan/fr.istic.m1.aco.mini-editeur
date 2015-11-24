@@ -29,9 +29,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 				selection.getFinSelection()
 				);
 
-
-		String keyword = "couper";
-		setValue(new Signal(keyword, null, null));
+		setValue(new Signal("couper", null, null));
 	}
 
 	@Override
@@ -48,9 +46,8 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		String content = pressePapier.getContenu();
 		this.saisir(content);
 		
-		String keyword = "coller";
 		String text = pressePapier.getContenu();
-		setValue(new Signal(keyword, text, null));
+		setValue(new Signal("coller", text, null));
 	}
 
 	@Override
