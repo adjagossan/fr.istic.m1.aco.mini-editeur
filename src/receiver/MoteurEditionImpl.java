@@ -29,7 +29,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 				selection.getFinSelection()
 				);
 
-		setValue(new Signal("couper", null, null));
+		//setValue(new Signal("couper", pressePapier.getContenu()));
 	}
 
 	@Override
@@ -38,6 +38,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		int fin = selection.getFinSelection();
 		String subString = buffer.subString(deb, fin);
 		pressePapier.setContenu(subString);
+		setValue(new Signal("copier", pressePapier.getContenu()));
 
 	}
 
@@ -45,23 +46,20 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	public void coller() {
 		String content = pressePapier.getContenu();
 		this.saisir(content);
-		
-		String text = pressePapier.getContenu();
-		setValue(new Signal("coller", text, null));
+		setValue(new Signal("coller", null));
 	}
 
 	@Override
 	public void saisir(String texte) {
 		int debutSelection = selection.getDebutSelection();
-		buffer.insert(debutSelection, texte);
-		//setValue(new Signal("saisir", null, selection));
+		int finSelection = selection.getFinSelection();
+		buffer.insert(debutSelection, finSelection, texte);
 
 	}
 
 	@Override
 	public void selectionner(Selection selection) {
 		this.selection = selection;
-		setValue(new Signal("selctionner", null, selection));
 	}
 
 	@Override

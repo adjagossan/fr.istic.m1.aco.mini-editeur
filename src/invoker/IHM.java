@@ -27,6 +27,7 @@ public class IHM implements IObserver {
 	public IHM(){
 		selection = new Selection(0,0);
 		inputCharacter = "";
+		pressePapier = "";
 		cmds = new HashMap<>();
 		
 	}
@@ -75,14 +76,16 @@ public class IHM implements IObserver {
 		Signal signal = (Signal) moteurEdition.getValue();
 		String keyWord = signal.getKeyword();
 		
-		if(keyWord.equalsIgnoreCase("selectionner"))
-				this.selection = signal.getSelection();
-		if(keyWord.equalsIgnoreCase("coller"))
-				this.inputCharacter = signal.getText();
+		if(keyWord.equalsIgnoreCase("copier"))
+				this.pressePapier = (String) signal.getObject();		
+		//if(keyWord.equalsIgnoreCase("coller"))
+		//		this.pressePapier = (String) signal.getObject();
 	}
+	
 	public String getPressePapier() {
 		return pressePapier;
 	}
+	
 	public void setPressePapier(String pressePapier) {
 		this.pressePapier = pressePapier;
 	}

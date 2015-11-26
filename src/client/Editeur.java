@@ -1,5 +1,7 @@
 package client;
 
+import invoker.IHM;
+
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,11 +10,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 import receiver.IMoteurEdition;
 import receiver.MoteurEditionImpl;
-import invoker.IHM;
 
 import command.Coller;
 import command.Copier;
@@ -101,11 +101,10 @@ public class Editeur extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ihm.invoke("coller");
-				
-	/*			String pressePapierContent = (String) moteur.getPressePapier().getValue();
-				System.out.println("pressePapierContent: "+pressePapierContent);
-				int position = moteur.getSelection().getDebutSelection();
-				mTextBox.insert(pressePapierContent, position);*/
+				int start = ihm.getSelection().getDebutSelection();
+				int end = ihm.getSelection().getFinSelection();
+				System.out.println("++: "+ihm.getPressePapier());
+				textArea.replaceRange(ihm.getPressePapier(), start, end);
 				
 			}
 		});

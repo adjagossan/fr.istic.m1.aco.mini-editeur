@@ -3,16 +3,14 @@ package receiver;
 public class Signal {
 	
 	private String keyword;
-	private String text;
-	private Selection selection;
+	private Object o;
 	
 	public Signal(){
 	}
 	
-	public Signal(String keyword, String text, Selection selection){
+	public Signal(String keyword, Object o){
 		this.keyword = keyword;
-		this.text = text;
-		this.selection = selection;
+		this.o = o;
 	}
 	
 	public String getKeyword() {
@@ -23,25 +21,17 @@ public class Signal {
 		this.keyword = keyword;
 	}
 
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	public Selection getSelection() {
-		return selection;
-	}
-
-	public void setSelection(Selection selection) {
-		this.selection = selection;
-	}
 	
+	public Object getObject() {
+		return o;
+	}
+
+	public void setObject(Object o) {
+		this.o = o;
+	}
+
 	public void update(Signal signal){
 		this.keyword = signal.keyword;
-		this.text = signal.text;
-		this.selection = signal.selection;
+		this.o = signal.o;
 	}
 }
