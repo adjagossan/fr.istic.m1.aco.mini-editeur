@@ -19,6 +19,7 @@ public class IHM implements IObserver {
 	
 	private Selection selection;
 	private String inputCharacter;
+	private String pressePapier;
 	private HashMap<String, ICommand> cmds = null;
 	/**
 	 * constructs the invoker IHM with an empty HashMap<String, ICommand>
@@ -41,7 +42,7 @@ public class IHM implements IObserver {
 	 * @param deb the begining index
 	 * @param fin the ending index
 	 */
-	public void setSelction(int deb, int fin){
+	public void setSelection(int deb, int fin){
 		selection.setSelection(deb, fin);
 	}
 	
@@ -66,9 +67,23 @@ public class IHM implements IObserver {
 		else
 			throw new IllegalArgumentException(cmd+" isn't a valid command");
 	}
+	
 	@Override
 	public void update(ISubject subject) {
+		
 		IMoteurEdition moteurEdition = (MoteurEditionImpl)subject;
 		Signal signal = (Signal) moteurEdition.getValue();
+		String keyWord = signal.getKeyword();
+		
+		if(keyWord.equalsIgnoreCase("selectionner"))
+				this.selection = signal.getSelection();
+		if(keyWord.equalsIgnoreCase("coller"))
+				this.inputCharacter = signal.getText();
+	}
+	public String getPressePapier() {
+		return pressePapier;
+	}
+	public void setPressePapier(String pressePapier) {
+		this.pressePapier = pressePapier;
 	}
 }

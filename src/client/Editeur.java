@@ -1,6 +1,14 @@
 package client;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 import receiver.IMoteurEdition;
 import receiver.MoteurEditionImpl;
@@ -15,6 +23,14 @@ import command.Selectionner;
 
 public class Editeur extends JFrame {
 
+	private JFrame fenetre;
+	private Container contenuFenetre;
+	
+	private JButton JBCopier = null;
+	private JButton JBCouper = null;
+	private JButton JBColler = null;
+	
+	private TextArea textArea = null;
 	/**
 	 * @param args
 	 */
@@ -41,6 +57,70 @@ public class Editeur extends JFrame {
 
 	}
 	
-	public Editeur(IMoteurEdition moteur, IHM ihm){}
+	public Editeur(IMoteurEdition moteur, final IHM ihm){
+		super("Mini-Editeur");
+		contenuFenetre = this.getContentPane();
+		contenuFenetre.setLayout(new BoxLayout(contenuFenetre, BoxLayout.PAGE_AXIS));
+		
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+		
+		JPanel zoneSaisePanel = new JPanel();
+		zoneSaisePanel.setLayout(new BoxLayout(zoneSaisePanel, BoxLayout.X_AXIS));
+		
+		textArea = new TextArea(ihm);
+		textArea.addCaretListener(textArea);
+		textArea.addKeyListener(textArea);
+		zoneSaisePanel.add(textArea);
+		
+		JBCopier = new JButton("Copier");
+		JBCopier.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ihm.invoke("copier");
+			}
+		});
+		
+		JBCouper = new JButton("Couper");
+		JBCouper.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ihm.invoke("couper");
+				int start = ihm.getSelection().getDebutSelection();
+				int end = ihm.getSelection().getFinSelection();
+				textArea.replaceRange("", start, end);
+				
+			}
+		});
+		
+		JBColler = new JButton("Coller");
+		JBColler.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ihm.invoke("coller");
+				
+	/*			String pressePapierContent = (String) moteur.getPressePapier().getValue();
+				System.out.println("pressePapierContent: "+pressePapierContent);
+				int position = moteur.getSelection().getDebutSelection();
+				mTextBox.insert(pressePapierContent, position);*/
+				
+			}
+		});
+		
+		buttonPanel.add(JBCopier);
+		buttonPanel.add(JBCouper);
+		buttonPanel.add(JBColler);
+		
+		contenuFenetre.add(buttonPanel);
+		contenuFenetre.add(zoneSaisePanel);
+		
+		this.setSize(600, 400);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
 
 }
