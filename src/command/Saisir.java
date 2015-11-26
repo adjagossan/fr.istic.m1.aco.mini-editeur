@@ -16,7 +16,7 @@ public class Saisir implements ICommand {
 			this.mEnregistreur = mEnregistreur;
 	}
 	
-	
+	@Override
 	public void execute() {
 		String inputCharacter = ihm.getInputCharacter();
 		mMoteurEdition.saisir(inputCharacter);
