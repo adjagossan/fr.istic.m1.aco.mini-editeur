@@ -3,18 +3,18 @@ package memento;
 import util.IMemento;
 
 public class MementoSaisir implements IMemento {
-	private String text;
+	private String state;
 	
-	public MementoSaisir(String text){
-		this.text = text;
+	public MementoSaisir(String state){
+		this.state = state;
 	}
 
-	public String getText() {
-		return text;
+	public String getState() {
+		return state;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 }

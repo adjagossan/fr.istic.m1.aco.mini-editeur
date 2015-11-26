@@ -1,5 +1,7 @@
 package command;
 
-public interface ICommandEnreg extends ICommand {
+import util.IOriginator;
+
+public interface ICommandEnreg extends ICommand, IOriginator {
 	void enregistrer();
 }

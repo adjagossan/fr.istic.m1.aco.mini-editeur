@@ -1,45 +1,45 @@
 package command;
 
-import receiver.IEnregistreur;
 import memento.MementoSaisir;
+import invoker.IHM;
+import receiver.IEnregistreur;
+import receiver.IMoteurEdition;
 import util.IMemento;
-import util.IOriginator;
 
 
-public class SaisirEnregistreur implements IOriginator, ICommandEnreg {
+public class SaisirEnregistreur extends Saisir implements ICommandEnreg {
 	
-	private Saisir cmdSaisir = null;
-	private String message;
+	private IEnregistreur enregistreur;
+	private String state;
+	private IHM ihm;
 	
-	private IEnregistreur enregistreur = null;
+	public SaisirEnregistreur(IMoteurEdition moteurEdition, IEnregistreur enregistreur, IHM ihm)
+	{
+		super(moteurEdition, ihm);
+		this.enregistreur = enregistreur;
+		this.ihm = ihm;
+	}
 	
 	@Override
 	public IMemento getMemento() {
-		return null; //new MementoSaisir(text);
+		this.state = ihm.getInputCharacter();
+		return new MementoSaisir(state);
 	}
 
 	@Override
-	public void setMemento(IMemento menento) {
-		// TODO Auto-generated method stub
-		
+	public void setMemento(IMemento memento) {
+		this.state = ((MementoSaisir)memento).getState();
+		ihm.setInputCharacter(state);
+		this.execute();
 	}
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public void execute(ICommandEnreg cmdEnr) {
-		// TODO Auto-generated method stub
-		
+		super.execute();
+		enregistreur.enregistrer(this);
 	}
 
 	@Override
 	public void enregistrer() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
+	}	
 }

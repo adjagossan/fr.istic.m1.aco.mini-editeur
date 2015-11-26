@@ -11,7 +11,6 @@ public class Rejouer implements ICommand {
 	}
 	
 	public void execute() {
-		// TODO Auto-generated method stub
 		enregistreur.rejouer();
 	}
 

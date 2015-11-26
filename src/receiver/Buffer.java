@@ -26,8 +26,9 @@ public class Buffer {
 		contenu.delete(indiceDebut, indiceFin);
 	}
 
-	public void insert(int indiceDebut, String texte  ){
-		contenu.insert(indiceDebut, texte);
+	public void insert(int indiceDebut, int indiceFin, String texte  ){
+		contenu.replace(indiceDebut, indiceFin, texte);
+		//contenu.insert(indiceDebut, texte);
 	}
 	
 	public String subString(int indiceDebut, int indiceFin){
