@@ -4,7 +4,7 @@ import receiver.IMoteurEdition;
 
 public class Copier implements ICommand {
 
-	private IMoteurEdition moteurEdition = null;
+	private IMoteurEdition moteurEdition;
 
 	public Copier(IMoteurEdition moteurEdition){
 		this.moteurEdition = moteurEdition;
@@ -13,6 +13,14 @@ public class Copier implements ICommand {
 	@Override
 	public void execute() {
 		moteurEdition.copier();
+	}
+
+	public IMoteurEdition getMoteurEdition() {
+		return moteurEdition;
+	}
+
+	public void setMoteurEdition(IMoteurEdition moteurEdition) {
+		this.moteurEdition = moteurEdition;
 	}
 
 }
