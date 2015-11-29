@@ -50,13 +50,21 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	}
 
 	@Override
-	public void saisir(String texte) {
+	public void saisir(String texte) 
+	{
 		int debutSelection = selection.getDebutSelection();
 		int finSelection = selection.getFinSelection();
+		
+		if(texte.equalsIgnoreCase("backspace"))
+		{
+			texte = "";
+			if(debutSelection == finSelection  && debutSelection > 0)
+				debutSelection--;
+		}
+		
 		buffer.insert(debutSelection, finSelection, texte);
-
 	}
-
+	
 	@Override
 	public void selectionner(Selection selection) {
 		this.selection = selection;
@@ -101,7 +109,6 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	@Override
 	public Object getValue() {
-		// TODO Auto-generated method stub
 		return signal;
 	}
 

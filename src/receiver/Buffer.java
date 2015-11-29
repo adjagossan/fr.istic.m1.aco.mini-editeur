@@ -24,7 +24,6 @@ public class Buffer {
 
 	public void delete(int indiceDebut, int indiceFin){
 		contenu.delete(indiceDebut, indiceFin);
-		System.out.println("buff: "+contenu);
 	}
 
 	public void insert(int indiceDebut, int indiceFin, String texte  ){

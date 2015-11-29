@@ -103,7 +103,6 @@ public class Editeur extends JFrame {
 				ihm.invoke("coller");
 				int start = ihm.getSelection().getDebutSelection();
 				int end = ihm.getSelection().getFinSelection();
-				System.out.println("++: "+ihm.getPressePapier());
 				textArea.replaceRange(ihm.getPressePapier(), start, end);
 				
 			}

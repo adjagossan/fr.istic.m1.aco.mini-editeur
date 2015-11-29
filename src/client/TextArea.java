@@ -20,14 +20,18 @@ public class TextArea extends JTextArea implements CaretListener, KeyListener {
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		String text = Character.toString(e.getKeyChar());
-		ihm.setInputCharacter(text);
+		
+		if(e.getKeyCode() == e.VK_BACK_SPACE)
+			ihm.setInputCharacter("backspace");
+		else
+			ihm.setInputCharacter(Character.toString(e.getKeyChar()));
+		
 		ihm.invoke("saisir");
 
 	}
