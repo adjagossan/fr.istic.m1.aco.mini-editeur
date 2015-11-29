@@ -53,6 +53,14 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	public void saisir(String texte) {
 		int debutSelection = selection.getDebutSelection();
 		int finSelection = selection.getFinSelection();
+		
+		if(texte.equalsIgnoreCase("backspace"))
+		{
+			texte = "";
+			if(debutSelection == finSelection  && debutSelection > 0)
+				debutSelection--;
+		}
+		
 		buffer.insert(debutSelection, finSelection, texte);
 
 	}

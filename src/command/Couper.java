@@ -4,7 +4,7 @@ import receiver.IEnregistreur;
 import receiver.IMoteurEdition;
 
 public class Couper implements ICommand {
-	private IMoteurEdition moteurEdition = null;
+	private IMoteurEdition moteurEdition;
 
 	public Couper(IMoteurEdition moteurEdition){
 		this.moteurEdition = moteurEdition;
@@ -13,6 +13,12 @@ public class Couper implements ICommand {
 	public void execute() {
 		moteurEdition.couper();
 
+	}
+	public IMoteurEdition getMoteurEdition() {
+		return moteurEdition;
+	}
+	public void setMoteurEdition(IMoteurEdition moteurEdition) {
+		this.moteurEdition = moteurEdition;
 	}
 
 }

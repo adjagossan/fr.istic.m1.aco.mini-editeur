@@ -23,5 +23,21 @@ public class Selectionner implements ICommand {
 		
 	}
 
+	public IMoteurEdition getmMoteurEdition() {
+		return mMoteurEdition;
+	}
+
+	public void setmMoteurEdition(IMoteurEdition mMoteurEdition) {
+		this.mMoteurEdition = mMoteurEdition;
+	}
+
+	public IHM getIhm() {
+		return ihm;
+	}
+
+	public void setIhm(IHM ihm) {
+		this.ihm = ihm;
+	}
+
 
 }
