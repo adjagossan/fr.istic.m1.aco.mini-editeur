@@ -20,6 +20,30 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		obs = new ArrayList<>();
 	}
 
+	public Buffer getBuffer() {
+		return buffer;
+	}
+
+	public void setBuffer(Buffer buffer) {
+		this.buffer = buffer;
+	}
+
+	public PressePapier getPressePapier() {
+		return pressePapier;
+	}
+
+	public void setPressePapier(PressePapier pressePapier) {
+		this.pressePapier = pressePapier;
+	}
+
+	public Selection getSelection() {
+		return selection;
+	}
+
+	public void setSelection(Selection selection) {
+		this.selection = selection;
+	}
+
 	@Override
 	public void couper() 
 	{
@@ -118,5 +142,9 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		{
 			observer.update(this);
 		}
+	}
+	
+	public String toString() {
+		return buffer.toString();
 	}
 }

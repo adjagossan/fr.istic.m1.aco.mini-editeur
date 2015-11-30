@@ -13,4 +13,10 @@ public interface IMoteurEdition extends ISubject{
 	void selectionner(Selection selection);
 
 	void saisir(String texte);
+	
+	Buffer getBuffer();
+	
+	PressePapier getPressePapier();
+	
+	Selection getSelection();
 }
