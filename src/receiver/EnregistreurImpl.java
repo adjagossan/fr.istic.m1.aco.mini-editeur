@@ -18,7 +18,8 @@ public class EnregistreurImpl implements IEnregistreur {
 		cmds = new ArrayList<ICommandEnreg>();
 		mementos = new ArrayList<IMemento>();
 	}
-
+	
+	@Override
 	public void enregistrer(ICommandEnreg cmdEnreg)
 	{
 		if (isStart())
@@ -56,11 +57,4 @@ public class EnregistreurImpl implements IEnregistreur {
 	public void setStart(boolean start) {
 		this.start = start;
 	}
-
-	@Override
-	public void enregistrer(ICommand cmd) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

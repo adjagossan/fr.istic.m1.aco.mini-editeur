@@ -1,10 +1,10 @@
 package receiver;
 
-import command.ICommand;
+import command.ICommandEnreg;
 
 public interface IEnregistreur {
 	
-	void enregistrer(ICommand cmd);
+	void enregistrer(ICommandEnreg cmd);
 	void demarrer();
 	void arreter();
 	void rejouer();
