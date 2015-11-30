@@ -1,19 +1,27 @@
 package command;
 
+import receiver.IEnregistreur;
+import receiver.IMoteurEdition;
 import util.IMemento;
 
-public class CouperEnreg implements ICommandEnreg {
+public class CouperEnreg extends Couper implements ICommandEnreg {
+	private IEnregistreur enregistreur;
+	
+	public CouperEnreg(IMoteurEdition moteurEdition, IEnregistreur enregistreur)
+	{
+		super(moteurEdition);
+		this.enregistreur = enregistreur;
+	}
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-
+		super.execute();
+		this.enregistrer();
 	}
 
 	@Override
 	public void enregistrer() {
-		// TODO Auto-generated method stub
-
+		this.enregistreur.enregistrer(this);
 	}
 
 	@Override
