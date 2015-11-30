@@ -12,7 +12,7 @@ public class Copier implements ICommand {
 
 	/**
 	 * Constructeur
-	 * @param moteurEdition
+	 * @param moteurEdition : moteur
 	 */
 	public Copier(IMoteurEdition moteurEdition){
 		this.moteurEdition = moteurEdition;
@@ -33,7 +33,7 @@ public class Copier implements ICommand {
 
 	/**
 	 * Setter
-	 * @param moteurEdition
+	 * @param moteurEdition : moteur
 	 */
 	public void setMoteurEdition(IMoteurEdition moteurEdition) {
 		this.moteurEdition = moteurEdition;

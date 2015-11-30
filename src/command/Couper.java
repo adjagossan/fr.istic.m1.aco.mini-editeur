@@ -11,7 +11,7 @@ public class Couper implements ICommand {
 
 	/**
 	 * Constructeur
-	 * @param moteurEdition
+	 * @param moteurEdition  : moteur
 	 */
 	public Couper(IMoteurEdition moteurEdition){
 		this.moteurEdition = moteurEdition;
@@ -31,7 +31,7 @@ public class Couper implements ICommand {
 	
 	/**
 	 * Setter
-	 * @param moteurEdition
+	 * @param moteurEdition : moteur
 	 */
 	public void setMoteurEdition(IMoteurEdition moteurEdition) {
 		this.moteurEdition = moteurEdition;

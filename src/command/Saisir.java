@@ -39,7 +39,7 @@ public class Saisir implements ICommand {
 
 	/**
 	 * Setter
-	 * @param mMoteurEdition
+	 * @param mMoteurEdition : moteur
 	 */
 	public void setmMoteurEdition(IMoteurEdition mMoteurEdition) {
 		this.mMoteurEdition = mMoteurEdition;
@@ -55,7 +55,7 @@ public class Saisir implements ICommand {
 
 	/**
 	 * Setter
-	 * @param ihm
+	 * @param ihm : ihm
 	 */
 	public void setIhm(IHM ihm) {
 		this.ihm = ihm;

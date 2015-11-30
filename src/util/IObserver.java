@@ -7,7 +7,7 @@ package util;
 public interface IObserver {
 	/**
 	 * Update
-	 * @param subject
+	 * @param subject : subject
 	 */
 	public void update(ISubject subject);
 }

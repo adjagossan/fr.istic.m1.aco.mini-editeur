@@ -38,7 +38,7 @@ public class Editeur extends JFrame {
 	
 	/**
 	 * Lance l'application mini editeur
-	 * @param args
+	 * @param args : args
 	 */
 	public static void main(String[] args) {
 		

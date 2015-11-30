@@ -26,13 +26,13 @@ public interface IMoteurEdition extends ISubject{
 
 	/**
 	 * Commande selection
-	 * @param selection
+	 * @param selection : selection
 	 */
 	void selectionner(Selection selection);
 
 	/**
 	 * Commande saisir du texte
-	 * @param texte
+	 * @param texte : texte
 	 */
 	void saisir(String texte);
 	
