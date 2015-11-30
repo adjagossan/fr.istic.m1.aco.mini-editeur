@@ -44,9 +44,13 @@ public class EnregistreurImpl implements IEnregistreur {
 	{
 		this.arreter();
 		if(cmds.size() == mementos.size())
-			for(int i=0; i<cmds.size(); i++){
+		{
+			for(int i=0; i<cmds.size(); i++)
+			{
 				cmds.get(i).setMemento(mementos.get(i));
+				cmds.get(i).execute();
 			}
+		}
 
 	}
 

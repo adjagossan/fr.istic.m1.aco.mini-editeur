@@ -11,35 +11,33 @@ public class SaisirEnregistreur extends Saisir implements ICommandEnreg {
 	
 	private IEnregistreur enregistreur;
 	private String state;
-	private IHM ihm;
 	
 	public SaisirEnregistreur(IMoteurEdition moteurEdition, IEnregistreur enregistreur, IHM ihm)
 	{
 		super(moteurEdition, ihm);
 		this.enregistreur = enregistreur;
-		this.ihm = ihm;
 	}
 	
 	@Override
 	public IMemento getMemento() {
-		this.state = ihm.getInputCharacter();
+		this.state = super.getIhm().getInputCharacter();
 		return new MementoSaisir(state);
 	}
 
 	@Override
 	public void setMemento(IMemento memento) {
 		this.state = ((MementoSaisir)memento).getState();
-		ihm.setInputCharacter(state);
-		this.execute();
+		super.getIhm().setInputCharacter(state);
 	}
 
 	@Override
 	public void execute() {
 		super.execute();
-		enregistreur.enregistrer(this);
+		this.enregistrer();
 	}
 
 	@Override
 	public void enregistrer() {
+		enregistreur.enregistrer(this);
 	}	
 }
