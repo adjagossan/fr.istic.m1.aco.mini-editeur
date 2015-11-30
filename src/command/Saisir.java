@@ -18,7 +18,6 @@ public class Saisir implements ICommand {
 	public void execute() {
 		String inputCharacter = ihm.getInputCharacter();
 		mMoteurEdition.saisir(inputCharacter);
-		
 	}
 
 	public IMoteurEdition getmMoteurEdition() {

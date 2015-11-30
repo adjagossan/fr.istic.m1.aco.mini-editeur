@@ -1,5 +1,6 @@
 package command;
 
+import memento.MementoSelectionner;
 import invoker.IHM;
 import receiver.IEnregistreur;
 import receiver.IMoteurEdition;
@@ -18,14 +19,16 @@ public class SelectionnerEnreg extends Selectionner implements ICommandEnreg {
 
 	@Override
 	public IMemento getMemento() {
-		// TODO Auto-generated method stub
-		return null;
+		int deb = super.getIhm().getSelection().getDebutSelection();
+		int fin = super.getIhm().getSelection().getFinSelection();
+		return new MementoSelectionner(deb, fin);
 	}
 
 	@Override
-	public void setMemento(IMemento menento) {
-		// TODO Auto-generated method stub
-
+	public void setMemento(IMemento memento) {
+		this.deb = ((MementoSelectionner) memento).getDeb();
+		this.fin = ((MementoSelectionner) memento).getFin();
+		super.getIhm().setSelection(deb, fin);
 	}
 	
 	@Override
