@@ -1,7 +1,7 @@
 package command;
 
-import memento.MementoSelectionner;
 import invoker.IHM;
+import memento.MementoSelectionner;
 import receiver.IEnregistreur;
 import receiver.IMoteurEdition;
 import util.IMemento;

@@ -1,7 +1,6 @@
 package command;
 
 import invoker.IHM;
-import receiver.IEnregistreur;
 import receiver.IMoteurEdition;
 
 public class Saisir implements ICommand {

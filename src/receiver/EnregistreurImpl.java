@@ -3,8 +3,6 @@ package receiver;
 import java.util.ArrayList;
 import java.util.List;
 import util.IMemento;
-
-import command.ICommand;
 import command.ICommandEnreg;
 
 public class EnregistreurImpl implements IEnregistreur {
@@ -47,14 +45,17 @@ public class EnregistreurImpl implements IEnregistreur {
 		{
 			for(int i=0; i<cmds.size(); i++)
 			{
-				if(mementos.get(i) != null && cmds.get(i)!= null)
+				if(cmds.get(i)!= null)
 				{
-					cmds.get(i).setMemento(mementos.get(i));
+					if(mementos.get(i) != null)
+					{
+						cmds.get(i).setMemento(mementos.get(i));
+					}
 					cmds.get(i).execute();
 				}
 			}
 		}
-
+		
 	}
 
 	public boolean isStart() {

@@ -31,7 +31,13 @@ public class Buffer {
 		//contenu.insert(indiceDebut, texte);
 	}
 	
-	public String subString(int indiceDebut, int indiceFin){
-		return contenu.substring(indiceDebut, indiceFin);
+	public String subString(int indiceDebut, int indiceFin)
+	{
+		int size = contenu.toString().length();
+		
+		if(/*size >= (indiceFin-indiceDebut) && */size >=indiceDebut && size >=indiceFin)
+			return contenu.substring(indiceDebut, indiceFin);
+		else
+			return null;
 	}
 }

@@ -1,6 +1,5 @@
 package command;
 
-import receiver.IEnregistreur;
 import receiver.IMoteurEdition;
 
 public class Couper implements ICommand {

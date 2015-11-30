@@ -1,7 +1,7 @@
 package command;
 
-import memento.MementoSaisir;
 import invoker.IHM;
+import memento.MementoSaisir;
 import receiver.IEnregistreur;
 import receiver.IMoteurEdition;
 import util.IMemento;

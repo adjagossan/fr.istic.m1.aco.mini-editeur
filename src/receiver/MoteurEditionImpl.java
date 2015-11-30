@@ -29,10 +29,9 @@ public class MoteurEditionImpl implements IMoteurEdition {
 				selection.getFinSelection()
 				);
 
-		//setValue(new Signal("couper", pressePapier.getContenu()));
+		setValue(new Signal("couper", pressePapier.getContenu()));
 	}
 
-	
 	public void copier() {
 		int deb = selection.getDebutSelection();
 		int fin = selection.getFinSelection();
@@ -42,32 +41,32 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	}
 
-	
 	public void coller() {
 		String content = pressePapier.getContenu();
-		this.saisir(content);
-		setValue(new Signal("coller", null));
+		if(content != null)
+			this.saisir(content);
+		setValue(new Signal("coller", content));
 	}
 
 	
-	public void saisir(String texte) {
+	public void saisir(String texte) 
+	{
 		int debutSelection = selection.getDebutSelection();
 		int finSelection = selection.getFinSelection();
-		
 		if(texte.equalsIgnoreCase("backspace"))
 		{
 			texte = "";
 			if(debutSelection == finSelection  && debutSelection > 0)
 				debutSelection--;
 		}
-		
 		buffer.insert(debutSelection, finSelection, texte);
-
+		setValue(new Signal("saisir", texte));
 	}
 
 	
 	public void selectionner(Selection selection) {
 		this.selection = selection;
+		setValue(new Signal("selectionner", this.selection));
 	}
 
 	
@@ -119,5 +118,15 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		{
 			observer.update(this);
 		}
+	}
+
+
+	public Selection getSelection() {
+		return selection;
+	}
+
+
+	public void setSelection(Selection selection) {
+		this.selection = selection;
 	}
 }

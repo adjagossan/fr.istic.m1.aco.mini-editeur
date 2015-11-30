@@ -1,6 +1,5 @@
 package command;
 
-import receiver.IEnregistreur;
 import receiver.IMoteurEdition;
 
 public class Copier implements ICommand {
@@ -11,7 +10,6 @@ public class Copier implements ICommand {
 		this.moteurEdition = moteurEdition;
 	}
 
-	
 	public void execute() {
 		moteurEdition.copier();
 	}

@@ -7,7 +7,7 @@ public class PressePapier {
 	private IMoteurEdition moteurEdition;
 	
 	public PressePapier(){
-		this.contenu = "";
+		//this.contenu = "";
 	}
 
 	public IMoteurEdition getMoteurEdition() {
