@@ -27,7 +27,7 @@ public class PressePapier {
 
 	/**
 	 * Setter
-	 * @param moteurEdition
+	 * @param moteurEdition : moteur
 	 */
 	public void setMoteurEdition(IMoteurEdition moteurEdition) {
 		this.moteurEdition = moteurEdition;
@@ -43,7 +43,7 @@ public class PressePapier {
 
 	/**
 	 * Setter
-	 * @param contenu
+	 * @param contenu : contenu
 	 */
 	public void setContenu(String contenu) {
 		this.contenu = contenu;

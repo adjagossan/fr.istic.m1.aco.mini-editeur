@@ -16,8 +16,8 @@ public class Signal {
 	
 	/**
 	 * Constructeur
-	 * @param keyword
-	 * @param o
+	 * @param keyword : mot clé
+	 * @param o : objet
 	 */
 	public Signal(String keyword, Object o){
 		this.keyword = keyword;
@@ -34,7 +34,7 @@ public class Signal {
 
 	/**
 	 * Setter
-	 * @param keyword
+	 * @param keyword : mot clé
 	 */
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
@@ -50,7 +50,7 @@ public class Signal {
 
 	/**
 	 * Setter
-	 * @param o
+	 * @param o : objet
 	 */
 	public void setObject(Object o) {
 		this.o = o;
@@ -58,7 +58,7 @@ public class Signal {
 
 	/**
 	 * Update
-	 * @param signal
+	 * @param signal : signal
 	 */
 	public void update(Signal signal){
 		this.keyword = signal.keyword;

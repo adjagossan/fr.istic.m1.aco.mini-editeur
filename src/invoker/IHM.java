@@ -23,7 +23,7 @@ public class IHM implements IObserver {
 	private String pressePapier;
 	private HashMap<String, ICommand> cmds = null;
 	/**
-	 * constructs the invoker IHM with an empty HashMap<String, ICommand>
+	 * constructs the invoker IHM with an empty HashMap
 	 */
 	public IHM(){
 		selection = new Selection(0,0);
@@ -58,7 +58,7 @@ public class IHM implements IObserver {
 
 	/**
 	 * Setter
-	 * @param inputCharacter
+	 * @param inputCharacter : caractère entré
 	 */
 	public void setInputCharacter(String inputCharacter) {
 		this.inputCharacter = inputCharacter;
@@ -66,8 +66,8 @@ public class IHM implements IObserver {
 	
 	/**
 	 * Ajoute une commande à la hashmap
-	 * @param keyword
-	 * @param cmd
+	 * @param keyword : mot clé
+	 * @param cmd : commande
 	 */
 	public void addCommand(String keyword, ICommand cmd) {
         if ((keyword == null) || (cmd == null)) {
@@ -78,7 +78,7 @@ public class IHM implements IObserver {
 	
 	/**
 	 * Execute une commande
-	 * @param cmd
+	 * @param cmd : commande
 	 */
 	public void invoke(String cmd){
 		if (cmds.containsKey(cmd))
@@ -110,7 +110,7 @@ public class IHM implements IObserver {
 	
 	/**
 	 * Setter
-	 * @param pressePapier
+	 * @param pressePapier : presse papier
 	 */
 	public void setPressePapier(String pressePapier) {
 		this.pressePapier = pressePapier;

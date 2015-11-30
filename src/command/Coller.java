@@ -11,7 +11,7 @@ public class Coller implements ICommand {
 
 	/**
 	 * Constructeur
-	 * @param moteurEdition
+	 * @param moteurEdition : moteur
 	 */
 	public Coller(IMoteurEdition moteurEdition){
 		this.moteurEdition = moteurEdition;

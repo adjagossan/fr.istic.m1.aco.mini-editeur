@@ -35,7 +35,7 @@ public class Buffer {
 	
 	/**
 	 * Constructeur
-	 * @param contenu
+	 * @param contenu : contenu du buffer
 	 */
 	public Buffer (StringBuffer contenu) {
 		this.contenu = contenu;
@@ -51,8 +51,8 @@ public class Buffer {
 
 	/**
 	 * Supprime du buffer le texte compris entre [indiceDebut,indiceFin]
-	 * @param indiceDebut
-	 * @param indiceFin
+	 * @param indiceDebut : indiceDebut
+	 * @param indiceFin : indiceFin
 	 */
 	public void delete(int indiceDebut, int indiceFin){
 		contenu.delete(indiceDebut, indiceFin);
@@ -60,9 +60,9 @@ public class Buffer {
 
 	/**
 	 * Insertion d'un texte dans le buffer en fonction de la position
-	 * @param indiceDebut
-	 * @param indiceFin
-	 * @param texte
+	 * @param indiceDebut : indiceDebut
+	 * @param indiceFin : indiceFin
+	 * @param texte : texte
 	 * @return le buffer
 	 */
 	public Buffer insert(int indiceDebut, int indiceFin, String texte  ){
@@ -73,8 +73,8 @@ public class Buffer {
 	
 	/**
 	 * 
-	 * @param indiceDebut
-	 * @param indiceFin
+	 * @param indiceDebut : indiceDebut
+	 * @param indiceFin : indiceFin
 	 * @return une sous chaine du buffer
 	 */
 	public String subString(int indiceDebut, int indiceFin){

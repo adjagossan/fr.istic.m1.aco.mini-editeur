@@ -15,8 +15,8 @@ public class Selectionner implements ICommand {
 	
 	/**
 	 * Constructeur
-	 * @param mMoteurEdition
-	 * @param ihm
+	 * @param mMoteurEdition : moteur
+	 * @param ihm : ihm
 	 */
 	public Selectionner(IMoteurEdition mMoteurEdition, IHM ihm){
 		
@@ -41,7 +41,7 @@ public class Selectionner implements ICommand {
 
 	/**
 	 * Setter
-	 * @param mMoteurEdition
+	 * @param mMoteurEdition : moteur
 	 */
 	public void setmMoteurEdition(IMoteurEdition mMoteurEdition) {
 		this.mMoteurEdition = mMoteurEdition;
@@ -57,7 +57,7 @@ public class Selectionner implements ICommand {
 
 	/**
 	 * Setter
-	 * @param ihm
+	 * @param ihm : ihm
 	 */
 	public void setIhm(IHM ihm) {
 		this.ihm = ihm;

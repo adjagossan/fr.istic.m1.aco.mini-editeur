@@ -35,7 +35,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	/**
 	 * Setter
-	 * @param buffer
+	 * @param buffer : buffer
 	 */
 	public void setBuffer(Buffer buffer) {
 		this.buffer = buffer;
@@ -48,7 +48,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	/**
 	 * Setter
-	 * @param pressePapier
+	 * @param pressePapier : presse papier
 	 */
 	public void setPressePapier(PressePapier pressePapier) {
 		this.pressePapier = pressePapier;
@@ -61,7 +61,7 @@ public class MoteurEditionImpl implements IMoteurEdition {
 
 	/**
 	 * Setter
-	 * @param selection
+	 * @param selection : selection
 	 */
 	public void setSelection(Selection selection) {
 		this.selection = selection;

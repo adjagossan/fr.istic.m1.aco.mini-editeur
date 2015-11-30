@@ -19,7 +19,7 @@ public class Selection {
 
 	/**
 	 * Setter
-	 * @param moteurEdition
+	 * @param moteurEdition : moteur
 	 */
 	public void setMoteurEdition(IMoteurEdition moteurEdition) {
 		this.moteurEdition = moteurEdition;
@@ -27,8 +27,8 @@ public class Selection {
 
 	/**
 	 * Constructeur
-	 * @param debutSelection
-	 * @param finSelection
+	 * @param debutSelection : debutSelection
+	 * @param finSelection : finSelection
 	 */
 	public Selection(int debutSelection, int finSelection) {
 		this.debutSelection = debutSelection;
@@ -45,7 +45,7 @@ public class Selection {
 
 	/**
 	 * Setter
-	 * @param debutSelection
+	 * @param debutSelection : debutSelection
 	 */
 	public void setDebutSelection(int debutSelection) {
 		this.debutSelection = debutSelection;
@@ -61,7 +61,7 @@ public class Selection {
 
 	/**
 	 * Setter
-	 * @param finSelection
+	 * @param finSelection : finSelection
 	 */
 	public void setFinSelection(int finSelection) {
 		this.finSelection = finSelection;
@@ -69,8 +69,8 @@ public class Selection {
 	
 	/**
 	 * Setter
-	 * @param deb
-	 * @param fin
+	 * @param deb : debut de la selection
+	 * @param fin : fin de la selection
 	 */
 	public void setSelection(int deb, int fin){
 		this.debutSelection = deb;
