@@ -13,8 +13,9 @@ import command.ICommand;
 /**
  *  invoker for the Command design pattern
  * 
- *
+ * @author Gossan Adja, Florent Le Boulch, Ammar Barry
  */
+
 public class IHM implements IObserver {
 	
 	private Selection selection;
@@ -47,14 +48,27 @@ public class IHM implements IObserver {
 		selection.setSelection(deb, fin);
 	}
 	
+	/**
+	 * Getter
+	 * @return le caractère entré
+	 */
 	public String getInputCharacter() {
 		return inputCharacter;
 	}
 
+	/**
+	 * Setter
+	 * @param inputCharacter
+	 */
 	public void setInputCharacter(String inputCharacter) {
 		this.inputCharacter = inputCharacter;
 	}
 	
+	/**
+	 * Ajoute une commande à la hashmap
+	 * @param keyword
+	 * @param cmd
+	 */
 	public void addCommand(String keyword, ICommand cmd) {
         if ((keyword == null) || (cmd == null)) {
             throw new IllegalArgumentException("null parameter");
@@ -62,6 +76,10 @@ public class IHM implements IObserver {
         cmds.put(keyword,cmd);
     }
 	
+	/**
+	 * Execute une commande
+	 * @param cmd
+	 */
 	public void invoke(String cmd){
 		if (cmds.containsKey(cmd))
 			cmds.get(cmd).execute();
@@ -82,10 +100,18 @@ public class IHM implements IObserver {
 		//		this.pressePapier = (String) signal.getObject();
 	}
 	
+	/**
+	 * Getter
+	 * @return presse papier
+	 */
 	public String getPressePapier() {
 		return pressePapier;
 	}
 	
+	/**
+	 * Setter
+	 * @param pressePapier
+	 */
 	public void setPressePapier(String pressePapier) {
 		this.pressePapier = pressePapier;
 	}

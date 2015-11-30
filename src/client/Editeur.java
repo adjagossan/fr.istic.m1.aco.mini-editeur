@@ -1,7 +1,6 @@
 package client;
 
 import invoker.IHM;
-
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +20,11 @@ import command.ICommand;
 import command.Saisir;
 import command.Selectionner;
 
+/**
+ * Classe Editeur
+ * @author Gossan Adja, Florent Le Boulch, Ammar Barry
+ */
+
 public class Editeur extends JFrame {
 
 	private JFrame fenetre;
@@ -31,7 +35,9 @@ public class Editeur extends JFrame {
 	private JButton JBColler = null;
 	
 	private TextArea textArea = null;
+	
 	/**
+	 * Lance l'application mini editeur
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -57,6 +63,11 @@ public class Editeur extends JFrame {
 
 	}
 	
+	/**
+	 * Constructeur
+	 * @param moteur : moteur de l'éditeur
+	 * @param ihm : ihm
+	 */
 	public Editeur(IMoteurEdition moteur, final IHM ihm){
 		super("Mini-Editeur");
 		contenuFenetre = this.getContentPane();

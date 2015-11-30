@@ -9,20 +9,27 @@ import org.junit.Test;
 
 import receiver.Buffer;
 
+/**
+ * Classe de test sur le buffer
+ * @author Gossan Adja, Florent Le Boulch, Ammar Barry
+ */
 public class TestBuffer {
 
 	private Buffer buffer;
 
 	@Before
+	/**
+	 * This is executed before each test case execution
+	 * @throws Exception
+	 */
 	public void setUp() throws Exception {
-		// This is executed before each test case execution
-		// We build a typical subject and a mock observer
-		
-		//buffer = new Buffer(new StringBuffer("dupont"));
 		buffer = new Buffer();
 	}
 	
 	@Test
+	/**
+	 * Test l'insertion de texte dans le buffer
+	 */
 	public void testInsert() {
 		assertNotNull("L'objet est null lors de l'initialisation", buffer);
 		String txt1 = "toto";
@@ -36,14 +43,13 @@ public class TestBuffer {
 		int lengTxt = txt1.length()+ txt2.length();
 		assertEquals("Le buffer n'est pas de taille "+lengTxt, buffer.getContenu().length(), lengTxt);
 		assertTrue("Le contenu du buffer est différent de celui des textes insérés", buffer.getContenu().toString().equals("todupontto"));
-		
-		
-		// TODO: rajouter test insertion à la fin
 	}
 	
 	@Test
+	/**
+	 * Test la suppression de texte dans le buffer
+	 */
 	public void testDelete() {
-		//buffer.delete(0,10);
 		assertNotNull("L'objet est null lors de l'initialisation", buffer);
 		
 		// 1er test : suppression totale du buffer
@@ -62,7 +68,6 @@ public class TestBuffer {
 		System.out.println(buffer.getContenu());
 		assertEquals("Le buffer n'a pas la même longueur que celle du texte supprimé", buffer.getContenu().length(), indiceFin+1);
 		assertTrue("Le contenu du buffer n'est pas égal à celui effacé", buffer.getContenu().toString().equals(txt1.substring(2, txt1.length())));
-		
 		
 	}
 

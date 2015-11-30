@@ -10,19 +10,29 @@ import org.junit.Test;
 import receiver.IMoteurEdition;
 import receiver.MoteurEditionImpl;
 import receiver.Selection;
-
+/**
+ * Classe de test sur le moteur
+ * @author Gossan Adja, Florent Le Boulch, Ammar Barry
+ */
 public class TestMoteurEditionImpl {
 
 	private IMoteurEdition moteur;
 	private IMoteurEdition moteur2;
 	
 	@Before
+	/**
+	 * This is executed before each test case execution
+	 * @throws Exception
+	 */
 	public void setUp() throws Exception {
 		moteur = new MoteurEditionImpl();
 		moteur2 = new MoteurEditionImpl();
 	}
 
 	@Test
+	/**
+	 * Test la commande couper du moteur
+	 */
 	public void testCouper() {
 		invariant();
 		String txt1 = "toto";
@@ -56,6 +66,9 @@ public class TestMoteurEditionImpl {
 	}
 
 	@Test 
+	/**
+	 * Test de la commande copier du moteur
+	 */
 	public void testCopier() {
 		invariant();
 		String txt1 = "toto";
@@ -88,7 +101,10 @@ public class TestMoteurEditionImpl {
 		
 	}
 
-	@Test 
+	@Test
+	/**
+	 * Test de la commande coller du moteur
+	 */
 	public void testColler() {
 		invariant();
 		String txt1 = "toto";
@@ -111,7 +127,7 @@ public class TestMoteurEditionImpl {
 		moteur.coller();
 		assertTrue("Le buffer ne contient pas 2 fois le texte collé", moteur.getBuffer().getContenu().toString().equals(txt1+txt1));
 		
-		// couper tout (sans changement de selection
+		// couper tout (sans changement de selection)
 		int newSelection = txt1.length()*2;
 		moteur.selectionner(new Selection(0, newSelection));
 		moteur.couper();
@@ -126,6 +142,9 @@ public class TestMoteurEditionImpl {
 	}
 
 	@Test 
+	/**
+	 * Test de la commande sélectionner du moteur
+	 */
 	public void testSelectionner() {
 		invariant();
 		assertEquals("La selection n'est pas initialisée à zéro",0, moteur.getSelection().getDebutSelection());
@@ -146,6 +165,9 @@ public class TestMoteurEditionImpl {
 	}
 
 	@Test 
+	/**
+	 * Test de la commande saisir du moteur
+	 */
 	public void testSaisir() {
 		invariant();
 		String txt1 = "toto";
@@ -159,7 +181,10 @@ public class TestMoteurEditionImpl {
 		assertTrue("Insérer 1 + 2 ne revient pas à insérer 1 puis insérer 2", moteur.getBuffer().getContenu().toString().equals(moteur2.getBuffer().getContenu().toString()));
 	}
 	
-	public void invariant() {
+	/**
+	 * Test de l'invariant - Lancé à chaque début de test
+	 */
+	private void invariant() {
 		assertNotNull("L'objet initialisé n'est pas vide", moteur);
 	}
 

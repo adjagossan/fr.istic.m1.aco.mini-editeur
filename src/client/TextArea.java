@@ -10,17 +10,23 @@ import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 
 import receiver.Selection;
-
+/**
+ * Classe TextArea
+ * @author Gossan Adja, Florent Le Boulch, Ammar Barry
+ */
 public class TextArea extends JTextArea implements CaretListener, KeyListener {
 	private IHM ihm = null;
 
+	/**
+	 * Constructeur
+	 * @param ihm : ihm
+	 */
 	public TextArea(IHM ihm){
-		super(5, 5);
+		super();
 		this.ihm = ihm;
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {
-		
 
 	}
 
