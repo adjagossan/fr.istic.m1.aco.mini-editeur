@@ -42,6 +42,8 @@ public interface IMoteurEdition extends ISubject {
 	 * @return buffer
 	 */
 	Buffer getBuffer();
+	
+	void setBuffer(Buffer buffer);
 	/**
 	 * Getter
 	 * @return pp

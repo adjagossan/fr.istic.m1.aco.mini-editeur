@@ -129,10 +129,10 @@ public class Editeur extends JFrame {
 				IMoteurEdition currentMoteur = Editeur.getSaisir().restoreFromMemento(moteur.getMemento(currentArticle));
 				// TODO : MAJ textArea
 				
-				/*System.out.println(">buffer : "+currentMoteur.getBuffer().toString());
-				System.out.println(">selection : "+currentMoteur.getSelection());
-				System.out.println(">pp : "+currentMoteur.getPressePapier());
-				System.out.println("------------------------");*/
+				System.out.println(">buffer : "+currentMoteur.getBuffer().toString());
+				//System.out.println(">selection : "+currentMoteur.getSelection());
+				//System.out.println(">pp : "+currentMoteur.getPressePapier());
+				System.out.println("------------------------");
 
 			}
 		});
@@ -182,11 +182,10 @@ public class Editeur extends JFrame {
 					else
 						JBUndo.setEnabled(false);
 						
-					//System.out.println("cur art : "+currentArticle);
-					/*System.out.println(">buffer : "+previousMoteur.getBuffer().toString());
-					System.out.println(">selection : "+previousMoteur.getSelection());
-					System.out.println(">pp : "+previousMoteur.getPressePapier());
-					System.out.println("------------------------");*/
+					System.out.println(">buffer : "+previousMoteur.getBuffer().toString());
+					//System.out.println(">selection : "+previousMoteur.getSelection());
+					//System.out.println(">pp : "+previousMoteur.getPressePapier());
+					System.out.println("------------------------");
 
 				}
 				else {
@@ -214,10 +213,10 @@ public class Editeur extends JFrame {
 					if ((saveFiles-1) <= currentArticle)
 						JBRedo.setEnabled(false);
 					
-					/*System.out.println(">buffer : "+nextMoteur.getBuffer().toString());
-					System.out.println(">selection : "+nextMoteur.getSelection());
-					System.out.println(">pp : "+nextMoteur.getPressePapier());
-					System.out.println("------------------------");*/
+					System.out.println(">buffer : "+nextMoteur.getBuffer().toString());
+					//System.out.println(">selection : "+nextMoteur.getSelection());
+					//System.out.println(">pp : "+nextMoteur.getPressePapier());
+					System.out.println("------------------------");
 				}
 				else {
 					JBRedo.setEnabled(false);

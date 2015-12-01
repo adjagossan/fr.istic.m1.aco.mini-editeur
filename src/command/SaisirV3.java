@@ -50,10 +50,10 @@ public class SaisirV3 extends Saisir {
 	public void set(IMoteurEdition newArticle) {
 		//System.out.println("From Originator: Current Version of Article\n"+newArticle+ "\n");
 		this.article = newArticle;
-		/*System.out.println(">buffer : "+newArticle.getBuffer().toString());
-		System.out.println(">selection : "+newArticle.getSelection());
-		System.out.println(">pp : "+newArticle.getPressePapier());
-		System.out.println("------------------------");*/
+		System.out.println(">buffer : "+newArticle.getBuffer().toString());
+		//System.out.println(">selection : "+newArticle.getSelection());
+		//System.out.println(">pp : "+newArticle.getPressePapier());
+		System.out.println("------------------------");
 	}
 	
 	public Memento storeInMemento() {
