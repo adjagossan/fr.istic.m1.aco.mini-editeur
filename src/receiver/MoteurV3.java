@@ -27,7 +27,7 @@ public class MoteurV3 extends MoteurEditionImpl {
 		moteur.setBuffer(getBuffer().clone());
 		moteur.setSelection(getSelection());
 		
-		moteur.setPressePapier(getPressePapier().clone());
+		//moteur.setPressePapier(getPressePapier().clone());
 		return moteur;
 	}
 	
