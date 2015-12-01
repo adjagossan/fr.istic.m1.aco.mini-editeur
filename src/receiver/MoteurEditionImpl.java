@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import util.IObserver;
 
+/**
+ * Classe MoteurEditionImpl
+ * Implémtentation de l'interface IMoteurEdition
+ * @author Gossan Adja, Florent Le Boulch, Ammar Barry
+ */
 public class MoteurEditionImpl implements IMoteurEdition {
 
 	private Buffer buffer;
@@ -12,6 +17,9 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	private Signal signal;
 	private List<IObserver> obs = null;
 
+	/**
+	 * Constructeur
+	 */
 	public MoteurEditionImpl () {
 		pressePapier = new PressePapier();
 		buffer = new Buffer();
@@ -21,6 +29,45 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	}
 
 	
+	public Buffer getBuffer() {
+		return buffer;
+	}
+
+	/**
+	 * Setter
+	 * @param buffer : buffer
+	 */
+	public void setBuffer(Buffer buffer) {
+		this.buffer = buffer;
+	}
+
+	@Override
+	public PressePapier getPressePapier() {
+		return pressePapier;
+	}
+
+	/**
+	 * Setter
+	 * @param pressePapier : presse papier
+	 */
+	public void setPressePapier(PressePapier pressePapier) {
+		this.pressePapier = pressePapier;
+	}
+
+	@Override
+	public Selection getSelection() {
+		return selection;
+	}
+
+	/**
+	 * Setter
+	 * @param selection : selection
+	 */
+	public void setSelection(Selection selection) {
+		this.selection = selection;
+	}
+
+	@Override
 	public void couper() 
 	{
 		copier();
@@ -112,6 +159,9 @@ public class MoteurEditionImpl implements IMoteurEdition {
 		return signal;
 	}
 
+	/**
+	 * Mise à jour des observers
+	 */
 	private void notifyObservers() {
 
 		for(IObserver observer : obs)
@@ -119,14 +169,11 @@ public class MoteurEditionImpl implements IMoteurEdition {
 			observer.update(this);
 		}
 	}
-
-
-	public Selection getSelection() {
-		return selection;
-	}
-
-
-	public void setSelection(Selection selection) {
-		this.selection = selection;
+	
+	/**
+	 * Surchage toString
+	 */
+	public String toString() {
+		return buffer.toString();
 	}
 }

@@ -1,7 +1,6 @@
 package client;
 
 import invoker.IHM;
-
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +28,11 @@ import command.Rejouer;
 import command.SaisirEnregistreur;
 import command.SelectionnerEnreg;
 
+/**
+ * Classe Editeur
+ * @author Gossan Adja, Florent Le Boulch, Ammar Barry
+ */
+
 public class Editeur extends JFrame implements IObserver {
 
 	private Container contenuFenetre = null;
@@ -42,7 +46,8 @@ public class Editeur extends JFrame implements IObserver {
 	private boolean rejouer = false;
 
 	/**
-	 * @param args
+	 * Lance l'application mini editeur
+	 * @param args : args
 	 */
 	public static void main(String[] args) {
 
@@ -74,9 +79,13 @@ public class Editeur extends JFrame implements IObserver {
 		Editeur editeur = new Editeur(moteur, ihm);
 		moteur.register(editeur);
 	}
-
-	public Editeur(IMoteurEdition moteur, final IHM ihm)
-	{
+	
+	/**
+	 * Constructeur
+	 * @param moteur : moteur de l'éditeur
+	 * @param ihm : ihm
+	 */
+	public Editeur(IMoteurEdition moteur, final IHM ihm){
 		super("Mini-Editeur");
 		
 		contenuFenetre = this.getContentPane();
