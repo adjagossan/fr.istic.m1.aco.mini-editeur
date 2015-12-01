@@ -65,4 +65,21 @@ public class EnregistreurImpl implements IEnregistreur {
 	public void setStart(boolean start) {
 		this.start = start;
 	}
+
+	public List<ICommandEnreg> getCmds() {
+		return cmds;
+	}
+
+	public void setCmds(List<ICommandEnreg> cmds) {
+		this.cmds = cmds;
+	}
+
+	public List<IMemento> getMementos() {
+		return mementos;
+	}
+
+	public void setMementos(List<IMemento> mementos) {
+		this.mementos = mementos;
+	}
+	
 }
