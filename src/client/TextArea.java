@@ -9,6 +9,7 @@ import javax.swing.JTextArea;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 
+import receiver.IMoteurEdition;
 import receiver.Selection;
 /**
  * Classe TextArea
@@ -16,14 +17,22 @@ import receiver.Selection;
  */
 public class TextArea extends JTextArea implements CaretListener, KeyListener {
 	private IHM ihm = null;
-
+	private IMoteurEdition moteur;
+	
 	/**
 	 * Constructeur
 	 * @param ihm : ihm
 	 */
-	public TextArea(IHM ihm){
+	public TextArea(IHM ihm, IMoteurEdition moteur){
 		super();
 		this.ihm = ihm;
+		this.moteur = moteur;
+		
+		ihm.invoke("saisir"); // TODO : à garder ? -> save in memento 1st state
+		Editeur.currentArticle =0;
+		Editeur.saveFiles = 1;
+		//System.out.println("current art : "+Editeur.getCurrentArticle());
+		
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -35,10 +44,19 @@ public class TextArea extends JTextArea implements CaretListener, KeyListener {
 		
 		if(e.getKeyCode() == e.VK_BACK_SPACE)
 			ihm.setInputCharacter("backspace");
-		else
+		else {
 			ihm.setInputCharacter(Character.toString(e.getKeyChar()));
+			//Editeur.getSaisir().set(Character.toString(e.getKeyChar()));
+		}
 		
 		ihm.invoke("saisir");
+		Editeur.JBUndo.setEnabled(true);
+		/*moteur.addMemento(Editeur.getSaisir().storeInMemento());
+		
+		Editeur.setSaveFiles(Editeur.getSaveFiles()+1);
+		Editeur.setCurrentArticle(Editeur.getCurrentArticle()+1);
+		
+		System.out.println("Save Files " + Editeur.getSaveFiles());*/
 
 	}
 

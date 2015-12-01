@@ -76,4 +76,8 @@ public class Selection {
 		this.debutSelection = deb;
 		this.finSelection = fin;
 	}
+	
+	public String toString() {
+		return ""+debutSelection + " "+ finSelection;
+	}
 }

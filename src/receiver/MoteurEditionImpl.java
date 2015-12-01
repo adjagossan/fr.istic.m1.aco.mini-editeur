@@ -2,6 +2,8 @@ package receiver;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import memento.Memento;
 import util.IObserver;
 
 /**
@@ -175,5 +177,23 @@ public class MoteurEditionImpl implements IMoteurEdition {
 	 */
 	public String toString() {
 		return buffer.toString();
+	}
+
+	@Override
+	public void addMemento(Memento m) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Memento getMemento(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MoteurV3 cloner() {
+		return null;
+		
 	}
 }

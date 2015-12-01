@@ -16,6 +16,10 @@ public class PressePapier {
 	public PressePapier(){
 		this.contenu = "";
 	}
+	
+	public PressePapier (String contenu) {
+		this.contenu = contenu;
+	}
 
 	/**
 	 * Getter
@@ -47,5 +51,17 @@ public class PressePapier {
 	 */
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
+	}
+	
+	public PressePapier clone()  {
+		PressePapier o = null;
+		o = new PressePapier(contenu);
+		
+		// on renvoie le clone
+		return o;
+	}
+	
+	public String toString() {
+		return contenu;
 	}
 }

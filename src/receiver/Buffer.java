@@ -88,4 +88,19 @@ public class Buffer {
 		return contenu.toString();
 	}
 	
+	public Buffer clone()  {
+		Buffer o = null;
+		//try {
+			// On récupère l'instance à renvoyer par l'appel de la 
+			// méthode super.clone()
+			o = new Buffer(new StringBuffer(contenu.toString()));
+		/*} catch(CloneNotSupportedException cnse) {
+			// Ne devrait jamais arriver car nous implémentons 
+			// l'interface Cloneable
+			cnse.printStackTrace(System.err);
+		}*/
+		// on renvoie le clone
+		return o;
+	}
+	
 }

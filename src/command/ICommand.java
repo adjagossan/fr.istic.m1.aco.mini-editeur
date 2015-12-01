@@ -1,5 +1,10 @@
 package command;
 
+import memento.Memento;
+import receiver.Buffer;
+import receiver.IMoteurEdition;
+import receiver.MoteurV3;
+
 /**
  * Interface ICommand
  * command for the Command design pattern
@@ -11,4 +16,10 @@ public interface ICommand {
 	 * Execute
 	 */
 	public void execute();
+	
+	void set(IMoteurEdition newArticle);
+	
+	Memento storeInMemento();
+	
+	IMoteurEdition restoreFromMemento(Memento memento);
 }
