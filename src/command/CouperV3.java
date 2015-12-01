@@ -30,8 +30,11 @@ public class CouperV3 extends Couper {
 
 		// Buffer buffTmp = (Buffer)
 		// super.getmMoteurEdition().getBuffer().clone();
+		
+		// clone du moteur
 		IMoteurEdition moteur = super.getMoteurEdition().cloner();
 
+		// définir la valeur du moteur
 		Editeur.getSaisir().set(moteur);
 
 		super.getMoteurEdition().addMemento(Editeur.getSaisir().storeInMemento());

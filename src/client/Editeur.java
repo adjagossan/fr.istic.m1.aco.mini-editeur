@@ -20,7 +20,7 @@ import command.SaisirV3;
 import command.Selectionner;
 import invoker.IHM;
 import receiver.Buffer;
-import receiver.IMoteurEdition;
+import receiver.IMoteurEdition;	
 import receiver.MoteurV3;
 
 /**
@@ -125,22 +125,14 @@ public class Editeur extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ihm.invoke("copier");
-				//saisir.set(text);
-				/*text += "toto";
-				moteur.addMemento(saisir.storeInMemento());
-				
-				saveFiles++;
-				currentArticle++;
-				
-				System.out.println("Save Files " + saveFiles);*/
+
 				IMoteurEdition currentMoteur = Editeur.getSaisir().restoreFromMemento(moteur.getMemento(currentArticle));
 				// TODO : MAJ textArea
 				
-				//System.out.println("cur art : "+currentArticle);
-				System.out.println(">buffer : "+currentMoteur.getBuffer().toString());
+				/*System.out.println(">buffer : "+currentMoteur.getBuffer().toString());
 				System.out.println(">selection : "+currentMoteur.getSelection());
 				System.out.println(">pp : "+currentMoteur.getPressePapier());
-				System.out.println("------------------------");
+				System.out.println("------------------------");*/
 
 			}
 		});
@@ -176,30 +168,25 @@ public class Editeur extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO : à implémenter
-				
-				/*ihm.invoke("coller");
-				int start = ihm.getSelection().getDebutSelection();
-				int end = ihm.getSelection().getFinSelection();
-				textArea.replaceRange(ihm.getPressePapier(), start, end);*/
-				
+
 				if (currentArticle >= 1) {
 					currentArticle--;
 					
 					IMoteurEdition previousMoteur = Editeur.getSaisir().restoreFromMemento(moteur.getMemento(currentArticle));
-					// TODO : MAJ textArea
+					// MAJ textArea
 					textArea.setText(previousMoteur.getBuffer().toString());
 					
+					// gestion des btn
 					if (currentArticle>=1)
 						JBRedo.setEnabled(true);
 					else
 						JBUndo.setEnabled(false);
 						
 					//System.out.println("cur art : "+currentArticle);
-					System.out.println(">buffer : "+previousMoteur.getBuffer().toString());
+					/*System.out.println(">buffer : "+previousMoteur.getBuffer().toString());
 					System.out.println(">selection : "+previousMoteur.getSelection());
 					System.out.println(">pp : "+previousMoteur.getPressePapier());
-					System.out.println("------------------------");
+					System.out.println("------------------------");*/
 
 				}
 				else {
@@ -214,18 +201,12 @@ public class Editeur extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO : à implémenter
-
-				/*ihm.invoke("coller");
-				int start = ihm.getSelection().getDebutSelection();
-				int end = ihm.getSelection().getFinSelection();
-				textArea.replaceRange(ihm.getPressePapier(), start, end);*/
 				
 				if ((saveFiles-1) > currentArticle) {
 					currentArticle++;
 					
 					IMoteurEdition nextMoteur = saisir.restoreFromMemento(moteur.getMemento(currentArticle));
-					// TODO : maj area
+					// maj area
 					textArea.setText(nextMoteur.getBuffer().toString());
 					
 					
@@ -233,10 +214,10 @@ public class Editeur extends JFrame {
 					if ((saveFiles-1) <= currentArticle)
 						JBRedo.setEnabled(false);
 					
-					System.out.println(">buffer : "+nextMoteur.getBuffer().toString());
+					/*System.out.println(">buffer : "+nextMoteur.getBuffer().toString());
 					System.out.println(">selection : "+nextMoteur.getSelection());
 					System.out.println(">pp : "+nextMoteur.getPressePapier());
-					System.out.println("------------------------");
+					System.out.println("------------------------");*/
 				}
 				else {
 					JBRedo.setEnabled(false);
