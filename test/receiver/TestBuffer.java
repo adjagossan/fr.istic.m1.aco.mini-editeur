@@ -2,6 +2,7 @@ package receiver;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -16,7 +17,7 @@ import receiver.Buffer;
 public class TestBuffer {
 
 	private Buffer buffer;
-
+	private IMoteurEdition moteurEdition;
 	@Before
 	/**
 	 * This is executed before each test case execution
@@ -68,7 +69,12 @@ public class TestBuffer {
 		System.out.println(buffer.getContenu());
 		assertEquals("Le buffer n'a pas la même longueur que celle du texte supprimé", buffer.getContenu().length(), indiceFin+1);
 		assertTrue("Le contenu du buffer n'est pas égal à celui effacé", buffer.getContenu().toString().equals(txt1.substring(2, txt1.length())));
-		
 	}
-
+	
+	@Test
+	public void TestSubString() throws Exception
+	{
+		buffer.insert(0, 0, "test");
+		assertTrue("wrong subString",buffer.subString(0, 2).equalsIgnoreCase("te"));
+	}
 }
