@@ -22,6 +22,7 @@ public class TextArea extends JTextArea implements CaretListener, KeyListener {
 	/**
 	 * Constructeur
 	 * @param ihm : ihm
+	 * @param moteur : moteur
 	 */
 	public TextArea(IHM ihm, IMoteurEdition moteur){
 		super();

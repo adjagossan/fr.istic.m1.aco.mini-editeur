@@ -19,7 +19,7 @@ public interface ICommand {
 	
 	/**
 	 * Définir la valeur pour le moteur
-	 * @param newMoteur
+	 * @param newMoteur : moteur
 	 */
 	void set(IMoteurEdition newMoteur);
 	
