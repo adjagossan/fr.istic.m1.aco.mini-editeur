@@ -60,14 +60,4 @@ public class TestEnregistreurImpl {
 		mEnregistreurImpl.arreter();
 		assertEquals("EnregistreurImpl en marche", mEnregistreurImpl.isStart(), false);
 	}
-	
-	@Test
-	public void testRejouer() throws Exception
-	{
-		testArreter();
-		assertEquals(
-				"Les listes de commandes enregistrables et de memento sont de taille différente",
-				mEnregistreurImpl.getCmds().size(), mEnregistreurImpl.getMementos().size());
-	}
-
 }
