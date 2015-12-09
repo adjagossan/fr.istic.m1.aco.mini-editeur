@@ -59,34 +59,6 @@ public class TestV3 {
 		
 		assertEquals("Buffer différent",concate, resu2);
 		
-		
-		
 	}
 	
-	/*@Test
-	/**
-	 * Test la suppression de texte dans le buffer
-	 */
-	/*public void testDelete() {
-		assertNotNull("L'objet est null lors de l'initialisation", buffer);
-		
-		// 1er test : suppression totale du buffer
-		String txt1 = "tpACO";
-		buffer.insert(0,0, txt1);
-		
-		buffer.delete(0, txt1.length());
-		assertEquals("Le buffer n'est pas vide", buffer.getContenu().length(), 0);
-		assertTrue("Le contenu du buffer n'est pas égal à celui effacé", buffer.getContenu().toString().isEmpty());
-		
-		// 2ème test : suppression partielle du buffer
-		buffer.insert(0,0, txt1);
-		
-		int indiceFin = txt1.length()-3;
-		buffer.delete(0, indiceFin); // indiceFin exclu
-		System.out.println(buffer.getContenu());
-		assertEquals("Le buffer n'a pas la même longueur que celle du texte supprimé", buffer.getContenu().length(), indiceFin+1);
-		assertTrue("Le contenu du buffer n'est pas égal à celui effacé", buffer.getContenu().toString().equals(txt1.substring(2, txt1.length())));
-		
-	}*/
-
 }

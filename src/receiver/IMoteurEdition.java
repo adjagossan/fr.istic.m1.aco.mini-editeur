@@ -43,13 +43,21 @@ public interface IMoteurEdition extends ISubject {
 	 */
 	Buffer getBuffer();
 	
+	/**
+	 * Setter
+	 * @param buffer : buffer
+	 */
 	void setBuffer(Buffer buffer);
 	/**
 	 * Getter
-	 * @return pp
+	 * @return presse papier
 	 */
 	PressePapier getPressePapier();
 	
+	/**
+	 * Setter
+	 * @param pressePapier : presse papier
+	 */
 	void setPressePapier(PressePapier pressePapier);
 	/**
 	 * Getter
@@ -57,10 +65,27 @@ public interface IMoteurEdition extends ISubject {
 	 */
 	Selection getSelection();
 	
+	/**
+	 * Setter
+	 * @param selection : selection
+	 */
 	void setSelection(Selection selection);
 	
+	/**
+	 * Ajoute memento à l'arrayList
+	 * @param m : memento
+	 */
 	void addMemento(Memento m);
+	
+	/**
+	 * 
+	 * @param index : indice de l'arrayList
+	 * @return le memento de l'arrayList à l'indice index
+	 */
 	Memento getMemento(int index);
 	
+	/**
+	 * @return un clone du moteur
+	 */
 	MoteurV3 cloner();
 }

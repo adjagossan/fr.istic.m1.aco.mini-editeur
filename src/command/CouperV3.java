@@ -3,16 +3,19 @@ package command;
 import client.Editeur;
 import memento.Memento;
 import receiver.IMoteurEdition;
-
+/**
+ * Classe CouperV3
+ * Concrete command for the Command design pattern
+ * @author Gossan Adja, Florent Le Boulch, Ammar Barry
+ */
 public class CouperV3 extends Couper {
-	/**
-	 * Originator
-	 * 
-	 * @author Florent
-	 *
-	 */
-	private IMoteurEdition article;
 
+	private IMoteurEdition moteur;
+
+	/**
+	 * Constructeur
+	 * @param mMoteurEdition : moteur
+	 */
 	public CouperV3(IMoteurEdition mMoteurEdition) {
 		super(mMoteurEdition);
 	}
@@ -24,13 +27,10 @@ public class CouperV3 extends Couper {
 
 	}
 
+	/**
+	 * Enregistre le moteur dans le memento
+	 */
 	public void enregistrer() {
-		// System.out.println(">>"+super.getIhm().getInputCharacter());
-		// Editeur.getSaisir().set(super.getIhm().getInputCharacter());
-
-		// Buffer buffTmp = (Buffer)
-		// super.getmMoteurEdition().getBuffer().clone();
-		
 		// clone du moteur
 		IMoteurEdition moteur = super.getMoteurEdition().cloner();
 
@@ -39,33 +39,21 @@ public class CouperV3 extends Couper {
 
 		super.getMoteurEdition().addMemento(Editeur.getSaisir().storeInMemento());
 
-		Editeur.setSaveFiles(Editeur.getSaveFiles() + 1);
-		Editeur.setCurrentArticle(Editeur.getCurrentArticle() + 1);
-
-		// System.out.println("current art : "+Editeur.getCurrentArticle());
-		// System.out.println("Save Files " + Editeur.getSaveFiles());
+		Editeur.setNbEnreg(Editeur.getNbEnreg() + 1);
+		Editeur.setCurrentStateMoteur(Editeur.getCurrentMoteur() + 1);
 
 	}
 
-	public void set(IMoteurEdition newArticle) {
-		// System.out.println("From Originator: Current Version of
-		// Article\n"+newArticle+ "\n");
-		this.article = newArticle;
-		System.out.println(">buffer : " + newArticle.getBuffer().toString());
-		System.out.println(">selection : " + newArticle.getSelection());
-		System.out.println(">pp : " + newArticle.getPressePapier());
-		System.out.println("------------------------");
+	public void set(IMoteurEdition newMoteur) {
+		this.moteur = newMoteur;
 	}
 
 	public Memento storeInMemento() {
-		// System.out.println("From Originator: Saving to Memento");
-		return new Memento(article);
+		return new Memento(moteur);
 	}
 
 	public IMoteurEdition restoreFromMemento(Memento memento) {
-		article = memento.getState();
-		// System.out.println("From Originator: Previous Article Saved in
-		// Memento\n"+article + "\n");
-		return article;
+		moteur = memento.getState();
+		return moteur;
 	}
 }

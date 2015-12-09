@@ -78,7 +78,6 @@ public class MoteurEditionImpl implements IMoteurEdition {
 				selection.getFinSelection()
 				);
 
-		//setValue(new Signal("couper", pressePapier.getContenu()));
 	}
 
 	@Override

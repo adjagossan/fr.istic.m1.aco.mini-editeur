@@ -17,9 +17,22 @@ public interface ICommand {
 	 */
 	public void execute();
 	
-	void set(IMoteurEdition newArticle);
+	/**
+	 * Définir la valeur pour le moteur
+	 * @param newMoteur
+	 */
+	void set(IMoteurEdition newMoteur);
 	
+	/**
+	 * Crée un nouveau memento avec un nouveau moteur
+	 * @return memento
+	 */
 	Memento storeInMemento();
 	
+	/**
+	 * 
+	 * @param memento : memento
+	 * @return le moteur stocké actuellement dans le memento
+	 */
 	IMoteurEdition restoreFromMemento(Memento memento);
 }

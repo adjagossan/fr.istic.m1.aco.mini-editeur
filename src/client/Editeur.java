@@ -40,6 +40,12 @@ public class Editeur extends JFrame {
 	private JButton JBRedo = null;
 	
 	private TextArea textArea = null;
+	private static ICommand saisir;
+	private static IMoteurEdition moteur;
+	static int nbEnreg = 0, currentStateMoteur = 0;
+	private static String text = "";
+	
+	
 	
 	/**
 	 * Getter
@@ -49,34 +55,43 @@ public class Editeur extends JFrame {
 		return saisir;
 	}
 
-	private static ICommand saisir;
-	private static IMoteurEdition moteur;
-	public static int getSaveFiles() {
-		return saveFiles;
+	/**
+	 * Getter
+	 * @return le nombre d'enregistrements
+	 */
+	public static int getNbEnreg() {
+		return nbEnreg;
 	}
 
-	public static void setSaveFiles(int saveFilesTmp) {
-		saveFiles = saveFilesTmp;
+	/**
+	 * Setter
+	 * @param nbRengTmp : nombre d'enregistrements
+	 */
+	public static void setNbEnreg(int nbRengTmp) {
+		nbEnreg = nbRengTmp;
 	}
 
-	public static int getCurrentArticle() {
-		return currentArticle;
+	/**
+	 * @return l'état du moteur courant
+	 */
+	public static int getCurrentMoteur() {
+		return currentStateMoteur;
 	}
 
-	public static void setCurrentArticle(int currentArticleTmp) {
-		currentArticle = currentArticleTmp;
+	/**
+	 * Setter
+	 * @param currentArticleTmp : met à jour l'état du moteur
+	 */
+	public static void setCurrentStateMoteur(int currentArticleTmp) {
+		currentStateMoteur = currentArticleTmp;
 	}
 
-	static int saveFiles = 0, currentArticle = 0; // new
-	private static String text = "";
-	
 	/**
 	 * Lance l'application mini editeur
 	 * @param args : args
 	 */
 	public static void main(String[] args) {
 		
-		//IMoteurEdition moteur = new MoteurEditionImpl();
 		moteur = new MoteurV3(); // caretaker
 		
 		IHM ihm = new IHM();
@@ -126,13 +141,7 @@ public class Editeur extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ihm.invoke("copier");
 
-				IMoteurEdition currentMoteur = Editeur.getSaisir().restoreFromMemento(moteur.getMemento(currentArticle));
-				// TODO : MAJ textArea
-				
-				System.out.println(">buffer : "+currentMoteur.getBuffer().toString());
-				//System.out.println(">selection : "+currentMoteur.getSelection());
-				//System.out.println(">pp : "+currentMoteur.getPressePapier());
-				System.out.println("------------------------");
+				IMoteurEdition currentMoteur = Editeur.getSaisir().restoreFromMemento(moteur.getMemento(currentStateMoteur));
 
 			}
 		});
@@ -169,23 +178,18 @@ public class Editeur extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				if (currentArticle >= 1) {
-					currentArticle--;
+				if (currentStateMoteur >= 1) {
+					currentStateMoteur--;
 					
-					IMoteurEdition previousMoteur = Editeur.getSaisir().restoreFromMemento(moteur.getMemento(currentArticle));
+					IMoteurEdition previousMoteur = Editeur.getSaisir().restoreFromMemento(moteur.getMemento(currentStateMoteur));
 					// MAJ textArea
 					textArea.setText(previousMoteur.getBuffer().toString());
 					
-					// gestion des btn
-					if (currentArticle>=1)
+					// gestion des boutons
+					if (currentStateMoteur>=1)
 						JBRedo.setEnabled(true);
 					else
 						JBUndo.setEnabled(false);
-						
-					System.out.println(">buffer : "+previousMoteur.getBuffer().toString());
-					//System.out.println(">selection : "+previousMoteur.getSelection());
-					//System.out.println(">pp : "+previousMoteur.getPressePapier());
-					System.out.println("------------------------");
 
 				}
 				else {
@@ -201,22 +205,18 @@ public class Editeur extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				if ((saveFiles-1) > currentArticle) {
-					currentArticle++;
+				if ((nbEnreg-1) > currentStateMoteur) {
+					currentStateMoteur++;
 					
-					IMoteurEdition nextMoteur = saisir.restoreFromMemento(moteur.getMemento(currentArticle));
-					// maj area
+					IMoteurEdition nextMoteur = saisir.restoreFromMemento(moteur.getMemento(currentStateMoteur));
+					// Update text area
 					textArea.setText(nextMoteur.getBuffer().toString());
 					
 					
 					JBUndo.setEnabled(true);
-					if ((saveFiles-1) <= currentArticle)
+					if ((nbEnreg-1) <= currentStateMoteur)
 						JBRedo.setEnabled(false);
 					
-					System.out.println(">buffer : "+nextMoteur.getBuffer().toString());
-					//System.out.println(">selection : "+nextMoteur.getSelection());
-					//System.out.println(">pp : "+nextMoteur.getPressePapier());
-					System.out.println("------------------------");
 				}
 				else {
 					JBRedo.setEnabled(false);

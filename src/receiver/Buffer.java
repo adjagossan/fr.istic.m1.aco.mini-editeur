@@ -67,7 +67,6 @@ public class Buffer {
 	 */
 	public Buffer insert(int indiceDebut, int indiceFin, String texte  ){
 		contenu.replace(indiceDebut, indiceFin, texte);
-		//contenu.insert(indiceDebut, texte);
 		return this;
 	}
 	
@@ -87,20 +86,13 @@ public class Buffer {
 	public String toString() {
 		return contenu.toString();
 	}
-	
+
+	/**
+	 * Clone du Buffer
+	 */
 	public Buffer clone()  {
-		Buffer o = null;
-		//try {
-			// On récupère l'instance à renvoyer par l'appel de la 
-			// méthode super.clone()
-			o = new Buffer(new StringBuffer(contenu.toString()));
-		/*} catch(CloneNotSupportedException cnse) {
-			// Ne devrait jamais arriver car nous implémentons 
-			// l'interface Cloneable
-			cnse.printStackTrace(System.err);
-		}*/
-		// on renvoie le clone
-		return o;
+		Buffer o = new Buffer(new StringBuffer(contenu.toString()));
+		return o; // on renvoie le clone
 	}
 	
 }

@@ -29,9 +29,8 @@ public class TextArea extends JTextArea implements CaretListener, KeyListener {
 		this.moteur = moteur;
 		
 		ihm.invoke("saisir"); // TODO : à garder ? -> save in memento 1st state
-		Editeur.currentArticle =0;
-		Editeur.saveFiles = 1;
-		//System.out.println("current art : "+Editeur.getCurrentArticle());
+		Editeur.currentStateMoteur =0;
+		Editeur.nbEnreg = 1;
 		
 	}
 	@Override
@@ -46,23 +45,15 @@ public class TextArea extends JTextArea implements CaretListener, KeyListener {
 			ihm.setInputCharacter("backspace");
 		else {
 			ihm.setInputCharacter(Character.toString(e.getKeyChar()));
-			//Editeur.getSaisir().set(Character.toString(e.getKeyChar()));
 		}
 		
 		ihm.invoke("saisir");
 		Editeur.JBUndo.setEnabled(true);
-		/*moteur.addMemento(Editeur.getSaisir().storeInMemento());
-		
-		Editeur.setSaveFiles(Editeur.getSaveFiles()+1);
-		Editeur.setCurrentArticle(Editeur.getCurrentArticle()+1);
-		
-		System.out.println("Save Files " + Editeur.getSaveFiles());*/
 
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
