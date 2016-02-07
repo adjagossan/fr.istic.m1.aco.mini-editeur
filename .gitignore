@@ -3,3 +3,7 @@ bin/
 .classpath
 
 .project
+/nbproject/private/
+/nbproject/
+/build.xml
+/manifest.mf
